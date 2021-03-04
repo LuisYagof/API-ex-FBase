@@ -3,6 +3,7 @@ const WRAPPERresult = document.querySelector(".wrapperResult");
 const INPUT = document.querySelector("#searcher");
 const BUTTONsearch = document.querySelector("#buttonSearch");
 const BUTTONreset = document.querySelector("#buttonReset");
+// const BUTTONfav = document.querySelector("#buttonFav");
 
 function fetchData(character) {
     fetch(`https://rickandmortyapi.com/api/character/?name=${character}`)
@@ -80,13 +81,23 @@ function printDetail(det) {
     let backC = document.createTextNode(`Atrás`)
     back.appendChild(backC)
     box.appendChild(back)
-
+    
     back.addEventListener("click", function(){
         WRAPPERresult.classList.remove("dissap")
         WRAPPERresult.classList.add("wrapperResult")
         wrapper.remove()
 
     })
+
+    let fav = document.createElement("button")
+    let favC = document.createTextNode(`Favoritos`)
+    fav.appendChild(favC)
+    box.appendChild(fav)
+
+    fav.addEventListener("click", function(){
+        saveElem(det)
+    })
+
 
 }
 
@@ -96,7 +107,12 @@ function hideSearch() {
 
 function resetSearch() {
     WRAPPERresult.querySelectorAll('*').forEach(n => n.remove())
-    INPUT.value = "";
+    INPUT.value = ""
+    if( document.querySelector(".wrapperDet") ){
+        document.querySelector(".wrapperDet").remove()
+        WRAPPERresult.classList.remove("dissap")
+        WRAPPERresult.classList.add("wrapperResult")
+    }
 }
 
 // ------------------------------------------------------------------EVENTS
