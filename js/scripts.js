@@ -78,7 +78,7 @@ function printDetail(det) {
     box.appendChild(gender)
 
     let back = document.createElement("button")
-    let backC = document.createTextNode(`Atrás`)
+    let backC = document.createTextNode(`Back`)
     back.appendChild(backC)
     box.appendChild(back)
     
@@ -90,14 +90,13 @@ function printDetail(det) {
     })
 
     let fav = document.createElement("button")
-    let favC = document.createTextNode(`Favoritos`)
+    let favC = document.createTextNode(`Favourites`)
     fav.appendChild(favC)
     box.appendChild(fav)
 
     fav.addEventListener("click", function(){
         saveElem(det)
     })
-
 
 }
 
