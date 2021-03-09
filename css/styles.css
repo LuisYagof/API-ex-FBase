@@ -62,12 +62,36 @@ table {
     align-items: center;
 }
 
+h1 {
+    font-size: 2.5rem;
+    margin: 2% 0%;
+    text-align: center;
+}
+
+h4 {
+    margin: 3% 0;
+    font-weight: normal;
+    font-style: oblique;
+    text-align: center;
+    color: grey;
+}
+
 .wrapperSearch {
     width: 95%;
     margin: 2% 0px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.wrapperSearch input {
+    width: 99%;
+    margin-bottom: 3%;
+}
+
+.wrapperSearch button {
+    width: 45%;
+    margin: 1%;
 }
 
 .wrapperResult {
@@ -86,6 +110,18 @@ table {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+h2 {
+    /* font-size: 1.2rem; */
+    margin: 2.5%;
+    text-align: center;
+}
+
+h2:hover {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
 }
 
 .wrapperDet {
@@ -114,47 +150,12 @@ table {
     border-radius: 50%;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin: 2% 0%;
-    text-align: center;
-}
-
-h4 {
-    margin: 3% 0;
-    font-weight: normal;
-    font-style: oblique;
-    text-align: center;
-    color: grey;
-}
-
-input {
-    width: 99%;
-    margin-bottom: 3%;
-}
-
-button {
-    width: 50%;
-}
-
-h2 {
-    /* font-size: 1.2rem; */
-    margin: 2.5%;
-    text-align: center;
-}
-
-h2:hover {
-    background-color: grey;
-    color: white;
-    cursor: pointer;
-}
-
-img {
-    width: 200px;
+.wrapperDet img {
+    width: 50vw;
     margin: 1%;
 }
 
-p {
+.wrapperDet p {
     line-height: 1.5;
     margin: 1%;
 }
@@ -169,27 +170,33 @@ p {
     h1 {
         font-size: 3.5rem;
     }
-
-    button {
-        width: 20%;
-    }
-
+    
     .wrapperSearch {
         flex-wrap: nowrap;
         align-items: baseline;
     }
-
+    
     .wrapperSearch input {
         width: 59%;
         margin-bottom: 0;
     }
 
+    .wrapperSearch button {
+        width: 20%;
+        margin: 0;
+    }
+    
     .wrapperDet {
         width: 95%;
     }
 
     .wrapperDet div {
         width: 45%;
+    }
+
+    .wrapperDet img {
+        width: 35vw;
+        margin: 1%;
     }
 
     .wrapperDet button {
@@ -217,5 +224,10 @@ p {
 
     .wrapperDet div {
         margin: 0;
+    }
+
+    .wrapperDet img {
+        width: 16vw;
+        margin: 1%;
     }
 }
