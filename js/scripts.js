@@ -3,7 +3,6 @@ const WRAPPERresult = document.querySelector(".wrapperResult");
 const INPUT = document.querySelector("#searcher");
 const BUTTONsearch = document.querySelector("#buttonSearch");
 const BUTTONreset = document.querySelector("#buttonReset");
-// const BUTTONfav = document.querySelector("#buttonFav");
 
 function fetchData(character) {
     fetch(`https://rickandmortyapi.com/api/character/?name=${character}`)
@@ -14,17 +13,6 @@ function fetchData(character) {
     })
     .then(data => mapea(data))
 }
-
-// function fetchData(character) {
-//     fetch(`https://rickandmortyapi.com/api/character/?name=${character}`)
-//     .then(response => response.json())
-//     .then(data => { return { dataAPI: data, dataFB: [] })
-//     .then(data => {
-//         sessionStorage.setItem(`search-${character}`, JSON.stringify(data.dataAPI))
-//         return data
-//     })
-//     .then(data => mapea(data))
-// }
 
 function mapea(object){
     object.results.map(elem => printSearch(elem))
@@ -89,15 +77,25 @@ function printDetail(det) {
 
     })
 
-    let fav = document.createElement("button")
-    let favC = document.createTextNode(`Favourites`)
-    fav.appendChild(favC)
-    box.appendChild(fav)
-
-    fav.addEventListener("click", function(){
-        saveElem(det)
-    })
-
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            let fav = document.createElement("button")
+            let favC = document.createTextNode(`Favourites`)
+            fav.appendChild(favC)
+            box.appendChild(fav)
+            fav.addEventListener("click", function(){
+                saveElem(det)
+            })
+            
+            let erase = document.createElement("button")
+            let eraseC = document.createTextNode(`Erase`)
+            erase.appendChild(eraseC)
+            box.appendChild(erase)
+            erase.addEventListener("click", function(){
+                eraseFav(det)
+            })
+        }
+      })
 }
 
 function hideSearch() {
@@ -126,6 +124,3 @@ BUTTONsearch.addEventListener("click", function() {
 })
 
 BUTTONreset.addEventListener("click", resetSearch)
-
-
-// ChildNode.replaceWith()
